@@ -1,0 +1,240 @@
+/* 🌿 Global styles */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #cde7ff 0%, #a2c2ff 100%);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Header */
+header {
+  padding: 2rem 1rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-bottom: 2px solid #b5d2ff;
+  backdrop-filter: blur(6px);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.3rem;
+  color: #1959b5;
+}
+
+header p {
+  color: #4067a3;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.premium-btn,
+.secondary-btn {
+  background: linear-gradient(90deg, #00b894, #00cec9);
+  border: none;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.premium-btn:hover {
+  background: linear-gradient(90deg, #0984e3, #74b9ff);
+}
+
+.secondary-btn:hover {
+  background: linear-gradient(90deg, #00cec9, #81ecec);
+}
+
+/* Add Plant Section */
+.add-plant {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.add-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+}
+
+.add-controls input,
+.add-controls select,
+.add-controls button {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #a0bce8;
+  font-size: 0.95rem;
+}
+
+.add-controls button {
+  background: linear-gradient(90deg, #00b894, #00cec9);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.add-controls button:hover {
+  background: linear-gradient(90deg, #00cec9, #55efc4);
+}
+
+/* Plant List */
+.plant-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* Plant Card */
+.plant-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.plant-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 0.7rem;
+}
+
+.plant-card h3 {
+  margin: 0.3rem 0;
+  color: #1959b5;
+}
+
+.plant-card p {
+  font-size: 0.9rem;
+  color: #4067a3;
+}
+
+/* Buttons on cards */
+.card-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.card-buttons button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 0.7rem;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 0.85rem;
+}
+
+/* Each button color */
+.water-btn {
+  background: linear-gradient(90deg, #74b9ff, #0984e3);
+}
+.water-btn:hover {
+  background: linear-gradient(90deg, #0984e3, #74b9ff);
+}
+
+.calendar-btn {
+  background: linear-gradient(90deg, #55efc4, #00b894);
+}
+.calendar-btn:hover {
+  background: linear-gradient(90deg, #00b894, #55efc4);
+}
+
+.delete-btn {
+  background: linear-gradient(90deg, #fab1a0, #d63031);
+}
+.delete-btn:hover {
+  background: linear-gradient(90deg, #d63031, #ff7675);
+}
+
+/* Footer */
+footer {
+  margin-top: 2rem;
+  padding: 1rem;
+  color: #4067a3;
+  font-size: 0.9rem;
+}
+/* ✅ Watered state button style */
+.watered {
+  background: linear-gradient(90deg, #00b894, #55efc4) !important;
+  color: white !important;
+  cursor: default;
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(85, 239, 196, 0.7);
+}
+/* calendar button distinct color (lavender/purple) */
+.calendar-btn {
+  background: linear-gradient(90deg, #b892ff, #9b79f2);
+  color: white;
+}
+.calendar-btn:hover {
+  background: linear-gradient(90deg, #9b79f2, #8660e6);
+}
+/* calendar button distinct color (lavender/purple) */
+.calendar-btn {
+  background: linear-gradient(90deg, #b892ff, #9b79f2);
+  color: white;
+}
+.calendar-btn:hover {
+  background: linear-gradient(90deg, #9b79f2, #8660e6);
+}
+
+/* watered state (green glow) — keep this too */
+.watered {
+  background: linear-gradient(90deg, #00b894, #55efc4) !important;
+  color: white !important;
+  cursor: default;
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(85, 239, 196, 0.7);
+}
+
+
+/* watered state (green glow) — keep this too */
+.watered {
+  background: linear-gradient(90deg, #00b894, #55efc4) !important;
+  color: white !important;
+  cursor: default;
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(85, 239, 196, 0.7);
+}
+
+.health-btn {
+  background: linear-gradient(90deg, #ff7675, #fd79a8);
+  color: white;
+  font-weight: 500;
+}
+.health-btn:hover {
+  background: linear-gradient(90deg, #fd79a8, #e84393);
+  transform: scale(1.03);
+}
+
