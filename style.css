@@ -237,4 +237,21 @@ footer {
   background: linear-gradient(90deg, #fd79a8, #e84393);
   transform: scale(1.03);
 }
+/* --- Login section styling --- */
+#authSection {
+  margin-top: 10px;
+}
 
+#authSection button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  margin: 4px;
+}
+
+#authSection button:hover {
+  background-color: #43a047;
+}
