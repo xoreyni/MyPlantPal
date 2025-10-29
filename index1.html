@@ -13,7 +13,12 @@
     <div class="top-buttons">
       <button class="premium-btn" id="upgradeBtn">Upgrade to Premium</button>
     </div>
-  </header>
+    <div id="authSection">
+    <button id="loginBtn">Sign in with Google</button>
+    <button id="logoutBtn">Log out</button>
+    <p id="userInfo"></p>
+  </div>
+</header>
 
   <section class="add-plant">
     <h2>Add a plant</h2>
@@ -36,5 +41,52 @@
   <footer>© 2025 MyPlantPal</footer>
 
   <script src="script.js"></script>
+  <script type="module">
+  // Import Firebase SDKs
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } 
+    from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCEfWsCSdk684OyheBrnZe-xOlRxmo45WA",
+    authDomain: "myplantpal-291db.firebaseapp.com",
+    projectId: "myplantpal-291db",
+    storageBucket: "myplantpal-291db.firebasestorage.app",
+    messagingSenderId: "752376388937",
+    appId: "1:752376388937:web:055572559b186ed8ea8e98"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  // Sign in with Google
+  document.getElementById('loginBtn').addEventListener('click', async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      document.getElementById('userInfo').textContent = `🌿 Welcome, ${user.displayName}!`;
+    } catch (error) {
+      console.error('Error signing in:', error);
+    }
+  });
+
+  // Sign out
+  document.getElementById('logoutBtn').addEventListener('click', async () => {
+    await signOut(auth);
+    document.getElementById('userInfo').textContent = '';
+  });
+
+  // Detect login state
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      document.getElementById('userInfo').textContent = `🌱 Hello, ${user.displayName}`;
+    } else {
+      document.getElementById('userInfo').textContent = '';
+    }
+  });
+</script>
 </body>
 </html>
