@@ -208,22 +208,11 @@ buttonsDiv.appendChild(healthBtn);
     imageEl.value = "";
   });
 
-  // premium button behavior
-  premiumBtn.textContent = "Upgrade to Premium (€4.99)";
-  premiumBtn.addEventListener("click", () => {
-    if (isPremium) {
-      alert("You're already Premium 🌟");
-      return;
-    }
-    const ok = confirm("Upgrade to Premium for €4.99 to unlock unlimited plants?");
-    if (ok) {
-      isPremium = true;
-      localStorage.setItem("premium", "true");
-      alert("🎉 Premium unlocked (simulated).");
-      premiumBtn.textContent = "Premium Active 🌟";
-      premiumBtn.disabled = true;
-    }
-  });
+  // premium button behavior (redirect to Stripe)
+premiumBtn.textContent = "Upgrade to Premium (€4.99)";
+premiumBtn.addEventListener("click", () => {
+  window.open("https://buy.stripe.com/4gM8wOfEn2pjfUXgZ95J600", "_blank");
+});
 
   // keep 'watered' state cleared when nextWatering passes
   setInterval(() => {
