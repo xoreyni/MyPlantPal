@@ -152,28 +152,35 @@ buttonsDiv.appendChild(healthBtn);
   }
 
   // add plant handler
-  addPlantBtn.addEventListener("click", () => {
-    const nameEl = document.getElementById("plantName");
-    const scheduleEl = document.getElementById("wateringSchedule");
-    const imageEl = document.getElementById("plantImage");
+  // add plant handler
+addPlantBtn.addEventListener("click", () => {
 
-    const name = nameEl.value.trim();
-    const schedule = parseInt(scheduleEl.value, 10);
-
-    if (!name) {
-      alert("Please enter a plant name 🌿");
-      return;
+  // ✅ 1. Premium limit check first
+  if (!isPremium && plants.length >= 3) {
+    const upgrade = confirm(
+      "🌿 Free version allows up to 3 plants.\nUpgrade to Premium (€4.99) for unlimited plants?"
+    );
+    if (upgrade) {
+      window.open("https://buy.stripe.com/4gM8wOfEn2pjfUXgZ95J600", "_blank");
     }
-
-   if (!isPremium && plants.length >= 3) {
-  const upgrade = confirm(
-    "🌿 Free version allows up to 3 plants.\nUpgrade to Premium (€4.99) for unlimited plants?"
-  );
-  if (upgrade) {
-    window.open("https://buy.stripe.com/4gM8wOfEn2pjfUXgZ95J600", "_blank");
+    return; // stop here — don’t add a plant
   }
-  return;
-}
+
+  // ✅ 2. Normal plant creation logic
+  const nameEl = document.getElementById("plantName");
+  const scheduleEl = document.getElementById("wateringSchedule");
+  const imageEl = document.getElementById("plantImage");
+
+  const name = nameEl.value.trim();
+  const schedule = parseInt(scheduleEl.value, 10);
+
+  if (!name) {
+    alert("Please enter a plant name 🌿");
+    return;
+  }
+
+  const file = imageEl.files[0];
+  ...
 
     const file = imageEl.files[0];
     if (file) {
