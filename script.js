@@ -149,6 +149,7 @@ buttonsDiv.appendChild(healthBtn);
       card.appendChild(buttonsDiv);
       plantList.appendChild(card);
     });
+}
 
    // add plant handler
 addPlantBtn.addEventListener("click", () => {
