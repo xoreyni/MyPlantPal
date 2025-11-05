@@ -149,10 +149,8 @@ buttonsDiv.appendChild(healthBtn);
       card.appendChild(buttonsDiv);
       plantList.appendChild(card);
     });
-  }
 
-  // add plant handler
-  // add plant handler
+    // add plant handler
 addPlantBtn.addEventListener("click", () => {
 
   // ✅ 1. Premium limit check first
