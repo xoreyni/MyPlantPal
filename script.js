@@ -178,7 +178,6 @@ addPlantBtn.addEventListener("click", () => {
   }
 
   const file = imageEl.files[0];
-  ...
 
     const file = imageEl.files[0];
     if (file) {
