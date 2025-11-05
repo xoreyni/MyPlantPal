@@ -150,7 +150,7 @@ buttonsDiv.appendChild(healthBtn);
       plantList.appendChild(card);
     });
 
-    // add plant handler
+   // add plant handler
 addPlantBtn.addEventListener("click", () => {
 
   // ✅ 1. Premium limit check first
@@ -178,31 +178,14 @@ addPlantBtn.addEventListener("click", () => {
   }
 
   const file = imageEl.files[0];
-
-    const file = imageEl.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const p = {
-          id: Date.now(),
-          name,
-          schedule,
-          image: e.target.result,
-          lastWatered: null,
-          nextWatering: null,
-          justWatered: false
-        };
-        plants.push(p);
-        savePlants();
-        renderPlants();
-      };
-      reader.readAsDataURL(file);
-    } else {
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
       const p = {
         id: Date.now(),
         name,
         schedule,
-        image: "https://via.placeholder.com/250x180.png?text=Plant",
+        image: e.target.result,
         lastWatered: null,
         nextWatering: null,
         justWatered: false
@@ -210,12 +193,27 @@ addPlantBtn.addEventListener("click", () => {
       plants.push(p);
       savePlants();
       renderPlants();
-    }
+    };
+    reader.readAsDataURL(file);
+  } else {
+    const p = {
+      id: Date.now(),
+      name,
+      schedule,
+      image: "https://via.placeholder.com/250x180.png?text=Plant",
+      lastWatered: null,
+      nextWatering: null,
+      justWatered: false
+    };
+    plants.push(p);
+    savePlants();
+    renderPlants();
+  }
 
-    // clear inputs
-    nameEl.value = "";
-    imageEl.value = "";
-  });
+  // ✅ 3. Clear inputs
+  nameEl.value = "";
+  imageEl.value = "";
+});
 
   // premium button behavior (redirect to Stripe)
 premiumBtn.textContent = "Upgrade to Premium (€4.99)";
