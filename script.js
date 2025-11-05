@@ -165,10 +165,15 @@ buttonsDiv.appendChild(healthBtn);
       return;
     }
 
-    if (!isPremium && plants.length >= 3) {
-      alert("Free version allows up to 3 plants. Upgrade to Premium for unlimited plants!");
-      return;
-    }
+   if (!isPremium && plants.length >= 3) {
+  const upgrade = confirm(
+    "🌿 Free version allows up to 3 plants.\nUpgrade to Premium (€4.99) for unlimited plants?"
+  );
+  if (upgrade) {
+    window.open("https://buy.stripe.com/4gM8wOfEn2pjfUXgZ95J600", "_blank");
+  }
+  return;
+}
 
     const file = imageEl.files[0];
     if (file) {
